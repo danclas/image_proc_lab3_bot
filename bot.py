@@ -28,8 +28,8 @@ async def start_message(message: types.Message):
         'Доступные фильтры: \n'
         '1. Серое изображение.\n'
         '2. Заблюренное изображение.\n'
-        '3. Добавить яркости.\n'
-        '4. Убавить яркости.\n')
+        '3. Добавить яркость.\n'
+        '4. Убавить яркость.\n')
 
 
 @dp.message_handler(commands=['help'], state=None)
@@ -38,13 +38,13 @@ async def start_message(message: types.Message):
                          'Доступные фильтры: \n'
                          '1. Серое изображение.\n'
                          '2. Заблюренное изображение.\n'
-                         '3. Добавить яркости.\n'
-                         '4. Убавить яркости.\n')
+                         '3. Добавить яркость.\n'
+                         '4. Убавить яркость.\n')
 
 
 @dp.message_handler(commands=['new'], state=None)
 async def new_message(message: types.Message):
-    await message.answer('Можете присылать фото', reply_markup=ReplyKeyboardRemove())
+    await message.answer('Можете присылать изображение', reply_markup=ReplyKeyboardRemove())
 
 
 @dp.message_handler(content_types=['photo'], state=None)
@@ -60,8 +60,8 @@ async def choosing_filter(message: types.Message):
     keyboard = ReplyKeyboardMarkup(resize_keyboard=True)
     button_gray = KeyboardButton('Серое изображение')
     button_blur = KeyboardButton('Заблюренное изображение')
-    button_add = KeyboardButton('Добавить яркости')
-    button_sub = KeyboardButton('Убавить яркости')
+    button_add = KeyboardButton('Добавить яркость')
+    button_sub = KeyboardButton('Убавить яркость')
     # buttons = ['Серое изображение', 'Заблюренное изображение', 'Добавить яркости', 'Убавить яркости']
     # keyboard.add(*buttons)
     keyboard.row(button_gray, button_blur)
