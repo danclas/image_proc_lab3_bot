@@ -101,7 +101,7 @@ async def send_img(message: types.Message, state: FSMContext):
         await state.finish()
     else:
         await message.answer('Если что-то пошло не так, наберите /new')
-        await state.finish()
+        #await state.finish()
 
 
 # run long-polling
