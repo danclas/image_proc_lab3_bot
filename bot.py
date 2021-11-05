@@ -83,11 +83,11 @@ async def send_img(message: types.Message, state: FSMContext):
         img = processing.read_img(user_id)
         processing.save_img(processing.get_blur_img(img), user_id)
         load_img = True
-    elif message.text == 'Добавить яркости':
+    elif message.text == 'Добавить яркость':
         img = processing.read_img(user_id)
         processing.save_img(processing.get_add_bright_img(img), user_id)
         load_img = True
-    elif message.text == 'Убавить яркости':
+    elif message.text == 'Убавить яркость':
         img = processing.read_img(user_id)
         processing.save_img(processing.get_sub_bright_img(img), user_id)
         load_img = True
