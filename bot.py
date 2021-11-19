@@ -46,11 +46,13 @@ async def start_message(message: types.Message):
 async def new_message(message: types.Message):
     await message.answer('Можете присылать изображение', reply_markup=ReplyKeyboardRemove())
 
+@dp.message_handler(state=None)
+async def any_message(message: types.Message):
+    await message.answer('Нужно присылать только фотографии!', reply_markup=ReplyKeyboardRemove())
 
 @dp.message_handler(content_types=['photo'], state=None)
 async def get_img(message: types.Message):
     await message.photo[-1].download(destination_file='photos/photo_{}.jpg'.format(message.from_user.id))
-    # await message.answer('da',reply_markup=ReplyKeyboardRemove())
     await ImageProc.choosing.set()
     await choosing_filter(message)
 
