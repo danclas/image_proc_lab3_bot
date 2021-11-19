@@ -15,11 +15,6 @@ def get_grayscale_img(img):
     return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 
-def get_black_white_img(img):
-    (thresh, im_bw) = cv2.threshold(get_grayscale_img(img), 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    return im_bw
-
-
 def get_blur_img(img):
     return cv2.medianBlur(img, 15)
 
@@ -49,6 +44,11 @@ def get_sub_bright_img(img):
 
 
 if __name__ == '__main__':
+
+    def get_black_white_img(img):
+        (thresh, im_bw) = cv2.threshold(get_grayscale_img(img), 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+        return im_bw
+
     img = cv2.imread('wallhaven-28ovmy.jpg')
 
     fig, axs = plt.subplots()
